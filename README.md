@@ -9,5 +9,5 @@ docker-compose up -d --build
 
 # Test
 ```sh
-curl localhost:8080
+Link http://{your-ip}
 ```
