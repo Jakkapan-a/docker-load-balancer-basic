@@ -12,7 +12,9 @@ services:
       - app-network
 
   service1:
-    image: node:latest
+    build:
+      context: ./service1
+      dockerfile: Dockerfile
     container_name: service1
     working_dir: /app
     volumes:
@@ -22,7 +24,9 @@ services:
       - app-network
 
   service2:
-    image: node:latest
+    build:
+      context: ./service2
+      dockerfile: Dockerfile
     container_name: service2
     working_dir: /app
     volumes:

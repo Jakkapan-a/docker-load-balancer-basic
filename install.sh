@@ -1,8 +1,5 @@
-# 1 CD to service1 npm install
-# 2 CD to service2 npm install
-
+#!/bin/bash
 cd service1
 npm install
 cd ../service2
 npm install
-
