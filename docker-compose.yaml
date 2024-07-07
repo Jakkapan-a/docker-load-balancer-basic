@@ -1,0 +1,36 @@
+services:
+  load-balancer:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./load-balancer/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - service1
+      - service2
+    networks:
+      - app-network
+
+  service1:
+    image: node:latest
+    container_name: service1
+    working_dir: /app
+    volumes:
+      - ./service1:/app
+    command: node index.js
+    networks:
+      - app-network
+
+  service2:
+    image: node:latest
+    container_name: service2
+    working_dir: /app
+    volumes:
+      - ./service2:/app
+    command: node index.js
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
